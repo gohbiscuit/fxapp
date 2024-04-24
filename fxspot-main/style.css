@@ -1,0 +1,35 @@
+.ticker {
+  display: flex;
+  width: 500px;
+  gap: 20px;
+}
+
+.ticker > div {
+  border: solid grey 2px;
+  height: 180px;
+  width: 240px;
+}
+
+.ticker .label {
+  height: 20px;
+}
+
+.ticker .spot {
+  font-size: 2rem;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 160px;
+}
+
+.row {
+  margin-bottom: 1rem
+}
+
+.ccy1-label, .ccy2-label {
+  text-transform: uppercase;
+}
+
+button.trade {
+  padding: 0.25rem;
+  font-size: 1.125rem;
+}

@@ -1,0 +1,15 @@
+## Goal
+
+The goal of this exercise is to have the FX Spot application use React and written in Typescript instead of JavaScript.
+
+The focus is on the source code. We do not expect you to change or improve the ui design. 
+We also do not want the functionality to change unless you find something to improve.
+
+### Requirements
+
+1. Create a new React app with Typescript. For instructions, please see https://create-react-app.dev/docs/adding-typescript/#installation.
+2. Convert the source to React using Typescript and make use of React and Typescript features to improve the code.
+3. Think about a suitable shape for the application state.
+4. Find a state solution that *does not* require additional dependencies (Typescript and React only).
+5. Extract repeating blocks of TSX (Typescript JSX) into reusable components. 
+6. Add tests.
