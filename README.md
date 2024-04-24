@@ -5,8 +5,6 @@
 - Node 14 or later and npm 6 or later
 - JavaScript, Typescript, React and its concepts
 
-Please take your time to read this file carefully until the end before starting the task.
-
 ## Setup
 cd to `fx-app`
 
@@ -21,7 +19,7 @@ cd to `fx-app`
 
 ## FX Spot Description
 
-What you see in the web browser resembles a simplified FX (Foreign Exchange) trade capture form. You may skip the next section if you are familiar with FX entry forms.
+A web browser resembles a simplified FX (Foreign Exchange) trade capture form.
 
 **Example Scenario**
 
