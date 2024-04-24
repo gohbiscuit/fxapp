@@ -3,9 +3,7 @@
 ## Prerequisites
 
 - Node 14 or later and npm 6 or later
-- Strong knowledge of JavaScript, Typescript, React and its concepts
-
-Please take your time to read this file carefully until the end before starting the task.
+- JavaScript, Typescript, React and its concepts
 
 ## Setup
 
