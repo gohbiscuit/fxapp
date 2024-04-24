@@ -1,16 +1,17 @@
-import { deepEqual } from "./deepEqual.js";
+import { deepEqual } from "./utils";
+import React, { useState } from 'react';
 
-export function stateService(initialState = {}) {
+export const stateService = (initialState = {}) => {
   let state = initialState;
-  const listeners = [];
+  const listeners: any = [];
 
-  const handleChange = (newState, update) => {
-    listeners.forEach((listener) => {
+  const handleChange = (newState: any, update: any) => {
+    listeners.forEach((listener: any) => {
       listener.call(null, newState, update);
     });
   };
 
-  const addListener = (listener) => {
+  const addListener = (listener: any) => {
     listeners.push(listener);
 
     // immediate

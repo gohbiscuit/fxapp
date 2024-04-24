@@ -1,9 +1,10 @@
-import { fxRateSubscriber } from "./modules/fxRateSubscriber.js";
-import { stateService } from "./modules/stateService.js";
-import { createTradeConfirmMessage } from "./modules/createTradeConfirmationMessage.js";
-import { getCcyKey } from "./modules/getCcyKey.js";
+import { fxRateSubscriber } from "./fxRateSubscriber";
+import { stateService } from "./stateService";
+import { createTradeConfirmMessage } from "./createTradeConfirmationMessage";
+import { getCcyKey } from "./utils";
+import { State } from "./types";
 
-export function main(root) {
+export const main = (root: any) => {
   const { setState, getState, addListener } = stateService({
     ccyPair: { ccy1: "EUR", ccy2: "USD" },
     price: {},
@@ -16,7 +17,7 @@ export function main(root) {
     onReceive: (price) => setState({ price }),
   });
 
-  const onStateChange = (state, update) => {
+  const onStateChange = (state: State, update: any) => {
     const hasPrice = () => state.ccyPair && Object.keys(state.price).length;
     const canTrade = () =>
       hasPrice() &&
@@ -51,7 +52,6 @@ export function main(root) {
       root.querySelector(".investment-ccy").style.display = "none";
     }
 
-    console.log('update ', update);
     if (
       Object.keys(update).includes("ccyPair") &&
       update.ccyPair !== undefined
@@ -72,16 +72,7 @@ export function main(root) {
       root.querySelector("input[name=amount]").value = update.amount || "";
     }
 
-    if (
-      Object.keys(update).includes(
-        "ccyPair",
-        "buySell",
-        "investmentCcy",
-        "amount"
-      )
-    ) {
-    
-      console.log('includes triggered!!', Object.keys(update));
+    if (Object.keys(update).includes("ccyPair")) {
       root.querySelector("div.confirmation").textContent = "";
       root.querySelector("div.confirmation").style.display = "none";
     }
@@ -89,9 +80,9 @@ export function main(root) {
     root.querySelector("button.trade").disabled = !canTrade();
   };
 
-  addListener((newState, update) => onStateChange(newState, update));
+  addListener((newState: any, update: any) => onStateChange(newState, update));
 
-  root.addEventListener("change", (event) => {
+  root.addEventListener("change", (event: any) => {
     if (event.target.classList.contains("select-currency-pair")) {
       if (event.target.value === "") {
         setState({ ccyPair: undefined });
@@ -112,13 +103,14 @@ export function main(root) {
     }
   });
 
-  root.addEventListener("keyup", (event) => {
+  root.addEventListener("keyup", (event: any) => {
     if (event.target.name === "amount") {
       setState({ amount: event.target.value });
     }
   });
 
-  root.addEventListener("click", (event) => {
+  //React.MouseEvent<HTMLElement>
+  root.addEventListener("click", (event: any) => {
     if (event.target.classList.contains("trade")) {
       root.querySelector("div.confirmation").textContent =
         createTradeConfirmMessage(getState());
